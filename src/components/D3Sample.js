@@ -51,7 +51,7 @@ const data =[
     "label": "Oxygen"
   },
   {
-    "score": 31,
+    "score": 35,
     "weight": 19,
     "category": "Super Business",
     "label": "Fluorine"
