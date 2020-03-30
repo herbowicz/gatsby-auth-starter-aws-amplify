@@ -121,7 +121,8 @@ const styles = {
     display: 'flex', flexDirection: 'column'
   },
   button: {
-    backgroundColor: 'rebeccapurple', padding: '15px 7px', cursor: 'pointer', textAlign: 'center', marginBottom: 10
+    background: 'linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,154,1) 50%, rgba(252,176,69,1) 100%)',
+    padding: '15px 7px', cursor: 'pointer', textAlign: 'center', marginBottom: 10
   },
   buttonText: {
     color: 'white'
