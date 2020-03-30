@@ -5,6 +5,7 @@ import { StaticQuery, graphql } from 'gatsby'
 
 import Header from './header'
 import D3Sample from './D3Sample'
+import Snake from './Snake'
 import './layout.css'
 
 const Layout = ({ children, data }) => (
@@ -39,7 +40,7 @@ const Layout = ({ children, data }) => (
           }}
         >
           <>
-            <D3Sample />
+            <Snake />
           </>
           {children}
         </div>

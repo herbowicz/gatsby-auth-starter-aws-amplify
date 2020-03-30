@@ -64,13 +64,7 @@ const data =[
   }
 ]
 
-class Circle extends Component {
-  state = {};
-  render() {
-    let { x, y, r, fill, ...props } = this.props;
-    return <circle cx={x} cy={y} r={r} fill={fill} {...props} />;
-  }
-}
+const Circle = ({ x, y, r, fill, ...props }) => <circle cx={x} cy={y} r={r} fill={fill} {...props} />;
 
 class D3Sample extends Component {
   state = {
@@ -98,8 +92,8 @@ class D3Sample extends Component {
     return (
       <div>
         <svg width={width} height={height}>
-          {this.state.data.map(d => {
-            return <Circle x={xScale(d[x])} y={yScale(d[y])} r={6} />;
+          {this.state.data.map((d, i) => {
+            return <Circle key={i} x={xScale(d[x])} y={yScale(d[y])} r={6} />;
           })}
         </svg>
       </div>
