@@ -8,6 +8,7 @@ export default () => {
   useEffect(() => {
     if (container.current) {
       const data = new Array(num).fill(20);
+      console.log(data)
       const root = d3.select(container.current);
 
       const render = root.selectAll("rect").data(data);
@@ -18,6 +19,7 @@ export default () => {
         .attr("fill", "red")
         .attr("width", 20)
         .attr("height", 20)
+        //.attrs({ width: 80, height: 80, fill: 'red' })
         .attr("x", (d, i) => d * i)
         .attr("y", (d, i) => d * i)
         .text(d => d);

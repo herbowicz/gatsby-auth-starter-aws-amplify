@@ -4,7 +4,10 @@ import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 
 import Header from './header'
-import D3Sample from './D3Sample'
+import Heart from './Heart'
+import Arc from './Arc';
+import { Corona, Corona2, Corona3, Corona4, Corona5, Corona6 } from './Corona';
+import Download from './Download'
 import Snake from './Snake'
 import './layout.css'
 
@@ -40,7 +43,29 @@ const Layout = ({ children, data }) => (
           }}
         >
           <>
-            <Snake />
+            <svg xmlns="http://www.w3.org/2000/svg" 
+                width="100" 
+                height="100" 
+                style={{
+                  border: '1px solid black',
+                  background: 'black'
+                }}
+            >
+              <Heart />
+              {/* <Arc />  */}
+            </svg>
+            <Download size={100} stroke={5} />
+            {/* <Snake /> */}
+            <div style={{
+              background: 'beige'
+            }}> Welcome in Nano console :D
+              <Corona />
+              <Corona2 />
+              <Corona3 />
+              <Corona4 />
+              <Corona5 />
+              <Corona6 />
+            </div>
           </>
           {children}
         </div>
