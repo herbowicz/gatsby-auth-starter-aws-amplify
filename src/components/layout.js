@@ -6,6 +6,7 @@ import { StaticQuery, graphql } from 'gatsby'
 import Header from './header'
 import Heart from './Heart'
 import Arc from './Arc';
+import Guess from './Guess';
 import { Corona, Corona2, Corona3, Corona4, Corona5, Corona6 } from './Corona';
 import Download from './Download'
 import Snake from './Snake'
@@ -42,6 +43,9 @@ const Layout = ({ children, data }) => (
             paddingTop: 0,
           }}
         >
+          <Guess />
+          <br />
+          <br />
           <>
             <svg xmlns="http://www.w3.org/2000/svg" 
                 width="100" 
@@ -58,7 +62,7 @@ const Layout = ({ children, data }) => (
             {/* <Snake /> */}
             <div style={{
               background: 'beige'
-            }}> Welcome in Nano console :D
+            }}> 
               <Corona />
               <Corona2 />
               <Corona3 />
