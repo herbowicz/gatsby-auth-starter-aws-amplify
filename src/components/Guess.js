@@ -74,15 +74,14 @@ const codes = {
 }
 
 const Guess = () => {
-
-  const [ answers, setAnswers ] = useState (['200', '300', '400', '500'])
-  const [ correct, setCorrect ] = useState (0)
-  const [ message, setMessage ] = useState('Start the Test')
+  const [ answers, setAnswers ] = useState ([])
+  const [ correct, setCorrect ] = useState (null)
+  const [ selected, setSelected ] = useState (null)
+  const [ show, setShow ] = useState(true)
 
   const checkResult = selected => {
-    setMessage(`Your answer is ${selected === correct 
-      ? `correct. Well Done!` 
-      : `wrong. It's ${correct}.`}`)
+    setSelected(selected)
+    setShow(true)
   }
 
   const start = () => {
@@ -97,17 +96,24 @@ const Guess = () => {
 
     setAnswers(newAns)
     setCorrect(rand)
-    setMessage('What is the right code?')
+    setShow(false)
   }
 
-  return(
-    <div style={{
-      color: '#282828',
-      border: '1px solid olive',
-      padding: 60,
-      marign: 40
-    }}>
+  useEffect(() => start(), [])
 
+  return(
+    <div 
+      style={{ 
+        background: show ? 'thistle' : 'palevioletred',
+        color: '#282828',
+        border: '1px solid olive',
+        padding: 60,
+        marign: 40
+      }}
+      onClick={e => {
+        e.target.tagName === 'BUTTON' || start()
+      }}
+    >
     <h3>Guess HTTP Status Code</h3>
     <h1 style={{color: '#33ff00'}}>{ codes[correct] }</h1>
 
@@ -122,7 +128,7 @@ const Guess = () => {
           cursor: 'pointer',
           outline: 'none'
         }} 
-        onClick={() => checkResult(el)}>
+        onClick={() => show ? start() : checkResult(el)}>
           {el}
       </button>
     ))}
@@ -131,9 +137,13 @@ const Guess = () => {
       style={{
         paddingTop: 25, 
         cursor: 'pointer',
-      }} 
-      onClick={() => start()}>
-        { message }
+      }}>
+        { !show
+          ? 'What is the right code?'
+          : `Your answer is ${selected === correct 
+            ? `correct. Well Done!` 
+            : `wrong. It's ${correct}.`}`
+        }
     </h3>
   </div>
   )
